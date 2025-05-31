@@ -1,0 +1,25 @@
+1. instalar java 8, cambiar la versión del compilador en el NetBeans del proyecto
+
+2. abrir el cmd, crear el archivo .h, con lo siguiente, solo cambia la ruta
+javac -h . C:\Users\diego\Documents\NetBeansProjects\prueba\src\main\java\comdiegocano\prueba\Prueba.java
+
+3. tienes que buscar la carpeta donde se instalo el java 8, que seria program files x86, java, entrar a la carpeta include, y copiar ruta de esta carpeta, en visual studio, en el menú de arriba donde dice proyecto-> prueba propiedades(el ultimo) -> c/c++ -> general, en donde dice directorios de inclusión adicionales, pegar la ruta 
+
+4. crear el archivo dll, en visual en el menú de la derecha donde están los archivos, da click en donde esta el nombre de proyecto, tiene icono cuadrado con 2 signos ++, click derecho y hasta abajo donde dice abrir en terminal, ahí se te va a abrir una consola abajo del visual, ahí pegas lo siguiente, CAMBIA LAS RUTAS POR LA QUE PUSISTE ARRIBA
+
+cl /LD /I "C:\Program Files (x86)\Java\jdk1.8.0_202\include" /I "C:\Program Files (x86)\Java\jdk1.8.0_202\include\win32" Prueba.c
+
+
+
+//este no
+gcc -shared -I"C:\Program Files (x86)\Java\jdk1.8.0_202\include" -I"C:\Program Files (x86)\Java\jdk1.8.0_202\include\win32" -o prueba.dll Prueba.c
+
+
+
+5. ya generado entrar a la carpeta del proyecto de c, copiar el archivo .dll yponer en la carpeta del proyecto de java
+
+
+6. en netbeans. click en el proyecto, propiedads, run, vm options, y pegar esto(con tu ruta)
+
+ -Djava.library.path="C:\Users\diego\Documents\NetBeansProjects\prueba\src\main\java\comdiegocano\prueba"
+
