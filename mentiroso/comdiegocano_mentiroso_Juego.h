@@ -77,26 +77,34 @@ extern "C" {
 #define comdiegocano_mentiroso_Juego_serialVersionUID 2673458971256075116i64
 /*
  * Class:     comdiegocano_mentiroso_Juego
- * Method:    terminoJuego
- * Signature: ()Z
+ * Method:    cambiarTurno
+ * Signature: ()V
  */
-JNIEXPORT jboolean JNICALL Java_comdiegocano_mentiroso_Juego_terminoJuego
+JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Juego_cambiarTurno
   (JNIEnv *, jobject);
 
 /*
  * Class:     comdiegocano_mentiroso_Juego
- * Method:    determinarJugador
- * Signature: ()Lcomdiegocano/mentiroso/Jugador;
+ * Method:    incrementarRonda
+ * Signature: ()V
  */
-JNIEXPORT jobject JNICALL Java_comdiegocano_mentiroso_Juego_determinarJugador
+JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Juego_incrementarRonda
   (JNIEnv *, jobject);
 
 /*
  * Class:     comdiegocano_mentiroso_Juego
- * Method:    cantidadJugadores
+ * Method:    esGanadorJuego
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_comdiegocano_mentiroso_Juego_esGanadorJuego
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     comdiegocano_mentiroso_Juego
+ * Method:    obtenerTurnoAnterior
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_comdiegocano_mentiroso_Juego_cantidadJugadores
+JNIEXPORT jint JNICALL Java_comdiegocano_mentiroso_Juego_obtenerTurnoAnterior
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

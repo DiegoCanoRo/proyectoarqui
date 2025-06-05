@@ -9,19 +9,19 @@ extern "C" {
 #endif
 /*
  * Class:     comdiegocano_mentiroso_Jugador
- * Method:    agregarPunto
- * Signature: ()V
+ * Method:    agregarPuntos
+ * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Jugador_agregarPunto
-  (JNIEnv *, jobject);
+JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Jugador_agregarPuntos
+  (JNIEnv *, jobject, jint);
 
 /*
  * Class:     comdiegocano_mentiroso_Jugador
- * Method:    quitarPunto
- * Signature: ()V
+ * Method:    quitarPuntos
+ * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Jugador_quitarPunto
-  (JNIEnv *, jobject);
+JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Jugador_quitarPuntos
+  (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus
 }

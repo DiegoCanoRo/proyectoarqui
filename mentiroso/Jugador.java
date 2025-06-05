@@ -14,26 +14,19 @@ public class Jugador {
     
     
      static {
-        //System.loadLibrary("Baraja"); 
-        System.load("C:\\Users\\diego\\source\\arqui\\ProyectoFinalArqui\\ProyectoFinalArqui\\Jugador.dll");
-
-        
+        System.load("C:\\Users\\diego\\source\\arqui\\ProyectoFinalArqui\\ProyectoFinalArqui\\Jugador.dll"); 
     }
-     
-    public native void agregarPunto();
 
-    public native void quitarPunto();
-
+    public native void agregarPuntos(int puntos);
+    public native void quitarPuntos(int puntos);
+    
+    
     public int getCartasRestantes() {
         return mano.tamanoBaraja();
     }
 
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public Baraja getBarajaMano() {

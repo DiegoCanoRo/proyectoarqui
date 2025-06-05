@@ -1,81 +1,51 @@
 package comdiegocano.mentiroso;
 
-
-
 public class Baraja {
 
-    Carta[] baraja = new Carta[40]; 
-    String[] bancoPalos = {"oros", "copas", "espadas", "bastos"};
-    
-    
-    static {
-        //System.loadLibrary("Baraja"); 
-        System.load("C:\\Users\\diego\\source\\arqui\\ProyectoFinalArqui\\ProyectoFinalArqui\\Baraja.dll");
+    Carta[] baraja = new Carta[52];
+    String[] palos = {"corazon", "diamante", "trebol", "espada"};
 
-        
+    static {
+        System.load("C:\\Users\\diego\\source\\arqui\\ProyectoFinalArqui\\ProyectoFinalArqui\\Baraja.dll");
     }
-    
-    
     
     public native void barajar();
-    
-   
     public native void eliminarCarta(int posicion);
-
+    public native void agregarCarta(Carta carta);
     public native void vaciarBaraja();
-
     public native int tamanoBaraja();
 
-    public native void agregarCarta(Carta carta);
-    
     public Baraja(int numero) {
-        //vaciarBaraja();
-    for (int i = 0; i < bancoPalos.length; i++) {
-        for (int j = 1; j <= 10; j++) {
-            agregarCarta(new Carta(
-                bancoPalos[i],
-                j,
-                true,
-                "/BarajaEspañola/" + j + " " + bancoPalos[i] + ".png"
-            ));
-        }
+        crearBaraja();
     }
-}
 
-
+    
     /**
-     * Constructor vacío (se puede usar para manos)
+     * Constructor vacio, para manos, pozo, cementerio
      */
     public Baraja() {
-        baraja = new Carta[40]; // Se inicializa como un arreglo vacío
+        baraja = new Carta[52]; // Se inicializa como un arreglo vacío
     }
-
-    /**
-     * Devuelve la baraja como un arreglo
-     */
     public Carta[] getBaraja() {
         return baraja;
     }
-    
-    public Carta getCarta(int i){
-    int tam = tamanoBaraja();
-    if (i < 0 || i >= tam) {
-        throw new IndexOutOfBoundsException("Índice fuera de rango: " + i);
+
+    public Carta getCarta(int i) {
+        return baraja[i];
     }
-    return baraja[i];
-}
-
-
-    /**
-     * Establece la visibilidad de todas las cartas en la baraja
-     */
-    public void setVisibilidad(boolean visibilidad) {
-        for (Carta carta : baraja) {
-            if (carta != null) {
-                carta.setVisibilidad(visibilidad);
+    
+    //crea una baraja inglesa
+    public void crearBaraja(){
+        for (int i = 0; i < palos.length; i++) {
+            for (int j = 1; j <= 13; j++) {
+                agregarCarta(new Carta(
+                        palos[i],
+                        j,
+                        true,
+                        "\\" + j + " " + palos[i] + ".png"
+                ));
             }
         }
     }
 
-   
 }

@@ -25,6 +25,14 @@ JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Baraja_eliminarCarta
 
 /*
  * Class:     comdiegocano_mentiroso_Baraja
+ * Method:    agregarCarta
+ * Signature: (Lcomdiegocano/mentiroso/Carta;)V
+ */
+JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Baraja_agregarCarta
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     comdiegocano_mentiroso_Baraja
  * Method:    vaciarBaraja
  * Signature: ()V
  */
@@ -38,14 +46,6 @@ JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Baraja_vaciarBaraja
  */
 JNIEXPORT jint JNICALL Java_comdiegocano_mentiroso_Baraja_tamanoBaraja
   (JNIEnv *, jobject);
-
-/*
- * Class:     comdiegocano_mentiroso_Baraja
- * Method:    agregarCarta
- * Signature: (Lcomdiegocano/mentiroso/Carta;)V
- */
-JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Baraja_agregarCarta
-  (JNIEnv *, jobject, jobject);
 
 #ifdef __cplusplus
 }

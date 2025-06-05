@@ -4,30 +4,33 @@
 #include "C:\Users\diego\Documents\NetBeansProjects\mentiroso\src\main\java\comdiegocano\mentiroso\comdiegocano_mentiroso_Jugador.h"
 
 
-JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Jugador_agregarPunto(JNIEnv* env, jobject obj) {
+JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Jugador_agregarPuntos(JNIEnv* env, jobject obj, jint puntosAgregar) {
     jclass claseJugador = (*env)->GetObjectClass(env, obj);
     jfieldID campoPuntos = (*env)->GetFieldID(env, claseJugador, "puntuacion", "I");
-    jint puntos = (*env)->GetIntField(env, obj, campoPuntos);
+    jint puntosActuales = (*env)->GetIntField(env, obj, campoPuntos);
 
     __asm {
-        mov eax, puntos
-        inc eax
-        mov puntos, eax
+        mov eax, puntosActuales
+        add eax, puntosAgregar
+        mov puntosActuales, eax
     }
 
-    (*env)->SetIntField(env, obj, campoPuntos, puntos);
+    (*env)->SetIntField(env, obj, campoPuntos, puntosActuales);
 }
 
-JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Jugador_quitarPunto(JNIEnv* env, jobject obj) {
+JNIEXPORT void JNICALL Java_comdiegocano_mentiroso_Jugador_quitarPuntos(JNIEnv* env, jobject obj, jint puntosQuitar) {
     jclass claseJugador = (*env)->GetObjectClass(env, obj);
     jfieldID campoPuntos = (*env)->GetFieldID(env, claseJugador, "puntuacion", "I");
-    jint puntos = (*env)->GetIntField(env, obj, campoPuntos);
+    jint puntosActuales = (*env)->GetIntField(env, obj, campoPuntos);
 
     __asm {
-        mov eax, puntos
-        dec eax
-        mov puntos, eax
+        mov eax, puntosActuales
+        sub eax, puntosQuitar
+        mov puntosActuales, eax
     }
 
-    (*env)->SetIntField(env, obj, campoPuntos, puntos);
+    (*env)->SetIntField(env, obj, campoPuntos, puntosActuales);
 }
+
+
+

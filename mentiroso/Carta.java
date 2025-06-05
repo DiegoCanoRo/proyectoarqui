@@ -3,11 +3,12 @@ package comdiegocano.mentiroso;
 import javax.swing.*;
 
 public class Carta {
+
     private String palo;
     private int valor;
-    private JLabel imagenCarta;
-    private JLabel imagenOculta;
     private boolean visibilidad;
+    private JLabel imagenBocaArriba;
+    private JLabel imagenBocaAbajo;
 
     public Carta(String palo, int valor, boolean visibilidad) {
         this.palo = palo;
@@ -19,10 +20,13 @@ public class Carta {
         this.palo = palo;
         this.valor = valor;
         this.visibilidad = visibilidad;
-        this.imagenCarta = new JLabel(new ImageIcon(getClass().getResource(rutaImagen)));
-        this.imagenOculta = new JLabel(new ImageIcon(getClass().getResource("/BarajaEspañola/CartaInversa.png")));
+        this.imagenBocaArriba = new JLabel(new ImageIcon("C:\\Users\\diego\\Documents\\NetBeansProjects"
+                + "\\mentiroso\\src\\main\\resources\\baraja" + rutaImagen));
+        this.imagenBocaAbajo = new JLabel(new ImageIcon("C:\\Users\\diego\\Documents\\NetBeansProjects"
+                + "\\mentiroso\\src\\main\\resources\\baraja\\volteada.png"));
     }
 
+    //getters
     public int getValor() {
         return valor;
     }
@@ -35,21 +39,15 @@ public class Carta {
         return visibilidad;
     }
 
-  
     public JLabel getImagenCarta() {
-        return visibilidad ? imagenCarta : imagenOculta;
+        return visibilidad ? imagenBocaArriba : imagenBocaAbajo;
     }
 
-    public JLabel getImagenOculta() {
-        return imagenOculta;
+    public JLabel getImagenBocaAbajo() {
+        return imagenBocaAbajo;
     }
 
-   
-    public void setVisibilidad(boolean visibilidad) {
-        this.visibilidad = visibilidad;
+    public String toString() {
+        return "Palo: " + palo + "Valor: " + valor;
     }
-
-   public String toString(){
-       return "Palo: " + palo + "Valor: " + valor;
-   }
 }
